@@ -10,4 +10,5 @@ COPY . .
 RUN npm run build
 RUN npm install --global http-server
 
-CMD ["npx", "-y", "http-server", "-p", "8000", "/app/build"]
+# В проде статику раздаёт gateway (nginx) из общего volume; копируем build в /staticfiles при старте.
+CMD cp -r /app/build/. /staticfiles/ && exec npx -y http-server -p 8000 /app/build
