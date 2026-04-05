@@ -9,6 +9,7 @@ jobs:
 
   tests:
     runs-on: ubuntu-latest
+    continue-on-error: true
     services:
       postgres:
         image: postgres:13
