@@ -28,8 +28,6 @@ services:
     container_name: frontend
     volumes:
       - static:/staticfiles
-    depends_on:
-      - backend
 
   gateway:
     image: ${DOCKER_USERNAME}/kittygram_gateway
